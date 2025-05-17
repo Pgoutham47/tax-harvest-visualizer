@@ -64,7 +64,7 @@ const CapitalGainsCard: React.FC<CapitalGainsCardProps> = ({
           {isAfterHarvesting ? 'Effective Capital Gains:' : 'Realised Capital Gains:'}
         </div>
         <div className={`text-2xl font-bold ${totalGains >= 0 ? 'text-koinz-white' : 'text-koinz-red'}`}>
-          {totalGains >= 0 ? '$ ' : '- $ '}{Math.abs(totalGains).toLocaleString('en-US', {maximumFractionDigits: 0})}
+          {totalGains >= 0 ? '$' : '- $'}{Math.abs(totalGains).toLocaleString('en-US', {maximumFractionDigits: 0})}
         </div>
       </div>
       

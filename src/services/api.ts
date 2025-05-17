@@ -7,7 +7,7 @@ const mockHoldings: Holding[] = [
     "coin": "BTC",
     "coinName": "Bitcoin",
     "logo": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-    "currentPrice": 55320.15,
+    "currentPrice": 85320.15,
     "totalHolding": 0.63776,
     "averageBuyPrice": 55000,
     "stcg": {
@@ -16,7 +16,7 @@ const mockHoldings: Holding[] = [
     },
     "ltcg": {
       "balance": 0.300,
-      "gain": 2400
+      "gain": -2400
     }
   },
   {
@@ -27,28 +27,44 @@ const mockHoldings: Holding[] = [
     "totalHolding": 5.6736,
     "averageBuyPrice": 1400,
     "stcg": {
-      "balance": 2.332,
-      "gain": 55320.15
+      "balance": 2.333,
+      "gain": -1200
     },
     "ltcg": {
       "balance": 3.245,
-      "gain": 8239.29
+      "gain": -2400
     }
   },
   {
-    "coin": "USDC",
-    "coinName": "USDC",
-    "logo": "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
+    "coin": "USDT",
+    "coinName": "Tether",
+    "logo": "https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661",
     "currentPrice": 1.00,
-    "totalHolding": 1533.99,
+    "totalHolding": 3142.21,
     "averageBuyPrice": 1.00,
     "stcg": {
-      "balance": 1533.99,
-      "gain": 0
+      "balance": 2011.23,
+      "gain": -1200
     },
     "ltcg": {
-      "balance": 0,
-      "gain": 0
+      "balance": 802.47,
+      "gain": -2400
+    }
+  },
+  {
+    "coin": "MATIC",
+    "coinName": "Polygon",
+    "logo": "https://coin-images.coingecko.com/coins/images/4713/large/polygon.png?1698233745",
+    "currentPrice": 0.50,
+    "totalHolding": 2204,
+    "averageBuyPrice": 0.45,
+    "stcg": {
+      "balance": 802,
+      "gain": -1200
+    },
+    "ltcg": {
+      "balance": 1402,
+      "gain": -2400
     }
   }
 ];
@@ -57,12 +73,12 @@ const mockHoldings: Holding[] = [
 const mockCapitalGains: CapitalGains = {
   capitalGains: {
     stcg: {
-      profits: 1540,
-      losses: 743
+      profits": 2335,
+      losses: 1548
     },
     ltcg: {
-      profits: 1200,
-      losses: 650
+      profits: 5020,
+      losses: 3050
     }
   }
 };

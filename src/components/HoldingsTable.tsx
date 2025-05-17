@@ -74,6 +74,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                   </td>
                   <td className="p-4">
                     <div className="flex items-center">
+                      <div className="w-4 mr-2 text-center">•</div>
                       <img 
                         src={holding.logo} 
                         alt={holding.coin} 
@@ -86,33 +87,33 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                     </div>
                   </td>
                   <td className="p-4 text-right">
-                    <div>{holding.totalHolding.toFixed(6)} {holding.coin}</div>
-                    <div className="text-xs text-koinz-gray">$ {holding.currentPrice.toFixed(2)}/{holding.coin}</div>
+                    <div>{holding.totalHolding.toFixed(holding.coin === "BTC" || holding.coin === "ETH" ? 3 : 2)} {holding.coin}</div>
+                    <div className="text-xs text-koinz-gray">$ {holding.currentPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/{holding.coin}</div>
                   </td>
                   <td className="p-4 text-right">
-                    $ {totalValue.toLocaleString('en-US', {maximumFractionDigits: 2})}
+                    $ {totalValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                   </td>
                   <td className="p-4 text-right">
                     <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
-                      {holding.stcg.gain >= 0 ? '+' : '-'}$ {Math.abs(holding.stcg.gain).toLocaleString('en-US', {maximumFractionDigits: 2})}
+                      {holding.stcg.gain >= 0 ? '+' : '-'}$ {Math.abs(holding.stcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}
                     </div>
                     <div className="text-xs text-koinz-gray">
-                      {holding.stcg.balance.toFixed(4)} {holding.coin}
+                      {holding.stcg.balance.toFixed(3)} {holding.coin}
                     </div>
                   </td>
                   <td className="p-4 text-right">
                     <div className={holding.ltcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
-                      {holding.ltcg.gain >= 0 ? '+' : '-'}$ {Math.abs(holding.ltcg.gain).toLocaleString('en-US', {maximumFractionDigits: 2})}
+                      {holding.ltcg.gain >= 0 ? '+' : '-'}$ {Math.abs(holding.ltcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}
                     </div>
                     <div className="text-xs text-koinz-gray">
-                      {holding.ltcg.balance.toFixed(4)} {holding.coin}
+                      {holding.ltcg.balance.toFixed(3)} {holding.coin}
                     </div>
                   </td>
                   <td className="p-4 text-right">
                     {isSelected ? (
-                      <div>{holding.totalHolding.toFixed(6)} {holding.coin}</div>
+                      <div>{holding.totalHolding.toFixed(holding.coin === "BTC" || holding.coin === "ETH" ? 4 : 2)} {holding.coin}</div>
                     ) : (
-                      <div>-</div>
+                      <div className="text-center">-</div>
                     )}
                   </td>
                 </tr>

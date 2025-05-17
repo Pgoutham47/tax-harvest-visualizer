@@ -11,7 +11,11 @@ const Header: React.FC<HeaderProps> = ({ toggleInfoModal }) => {
   return (
     <header className="flex items-center justify-between p-4 bg-koinz-darkNavy">
       <div className="flex items-center">
-        <h1 className="text-2xl font-bold text-blue-500">KoinZ®</h1>
+        <img 
+          src="/lovable-uploads/9f81926c-52c2-4f70-901f-58251a46bd4e.png" 
+          alt="KoinX" 
+          className="h-8" 
+        />
       </div>
       <div className="flex items-center space-x-4">
         <div className="flex items-center">
