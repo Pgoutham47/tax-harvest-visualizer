@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Holding } from '@/types';
@@ -7,12 +6,14 @@ interface HoldingsTableProps {
   holdings: Holding[];
   selectedHoldings: string[];
   onSelectionChange: (selectedCoins: string[]) => void;
+  isPreHarvesting?: boolean;
 }
 
 const HoldingsTable: React.FC<HoldingsTableProps> = ({ 
   holdings, 
   selectedHoldings, 
-  onSelectionChange 
+  onSelectionChange,
+  isPreHarvesting = false
 }) => {
   const [showAll, setShowAll] = useState(false);
   
@@ -37,14 +38,20 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
   // Display only first 4 holdings unless "View All" is clicked
   const displayedHoldings = showAll ? holdings : holdings.slice(0, 4);
   
+  // Background color based on pre-harvesting state
+  const bgColorClass = isPreHarvesting ? 'bg-koinz-lightNavy' : 'bg-koinz-darkNavy';
+  
   return (
-    <div className="mt-8">
-      <h3 className="text-xl font-semibold mb-4">Holdings</h3>
+    <div className={`mt-8 rounded-lg p-6 ${bgColorClass}`}>
+      <div className="flex justify-between items-center mb-6">
+        <h3 className="text-2xl font-semibold text-white">Holdings</h3>
+      </div>
+      
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
-          <thead className="bg-koinz-darkNavy">
-            <tr>
-              <th className="p-4 text-left">
+          <thead>
+            <tr className="bg-koinz-navy">
+              <th className="p-4 text-left rounded-tl-lg">
                 <Checkbox 
                   checked={isAllSelected} 
                   onCheckedChange={(checked) => handleSelectAll(!!checked)} 
@@ -58,7 +65,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
               <th className="p-4 text-right">Total Current Value</th>
               <th className="p-4 text-right">Short-term</th>
               <th className="p-4 text-right">Long-Term</th>
-              <th className="p-4 text-right">Amount to Sell</th>
+              <th className="p-4 text-right rounded-tr-lg">Amount to Sell</th>
             </tr>
           </thead>
           <tbody>
@@ -69,7 +76,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
               return (
                 <tr 
                   key={holding.coin}
-                  className={`border-b border-koinz-gray/10 ${isSelected ? 'bg-blue-500/5' : ''} hover:bg-koinz-gray/5`}
+                  className={`border-b border-koinz-gray/10 ${isSelected ? 'bg-blue-500/10' : ''} hover:bg-koinz-gray/10`}
                 >
                   <td className="p-4">
                     <Checkbox 
@@ -100,15 +107,15 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                   </td>
                   <td className="p-4 text-right">
                     <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
-                      {holding.stcg.gain !== 0 ? `${holding.stcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.stcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
+                      {holding.stcg.gain !== 0 ? `${holding.stcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.stcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : '-'}
                     </div>
                     <div className="text-xs text-koinz-gray">
                       {holding.stcg.balance > 0 ? `${holding.stcg.balance.toFixed(3)} ${holding.coin}` : ''}
                     </div>
                   </td>
                   <td className="p-4 text-right">
-                   <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
-                      {holding.ltcg.gain !== 0 ? `${holding.ltcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.ltcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
+                   <div className={holding.ltcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
+                      {holding.ltcg.gain !== 0 ? `${holding.ltcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.ltcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : '-'}
                     </div>
                     <div className="text-xs text-koinz-gray">
                       {holding.ltcg.balance > 0 ? `${holding.ltcg.balance.toFixed(3)} ${holding.coin}` : ''}
