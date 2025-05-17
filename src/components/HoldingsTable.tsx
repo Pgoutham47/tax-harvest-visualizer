@@ -1,0 +1,128 @@
+
+import React from 'react';
+import { Checkbox } from "@/components/ui/checkbox";
+import { Holding } from '@/types';
+
+interface HoldingsTableProps {
+  holdings: Holding[];
+  selectedHoldings: string[];
+  onSelectionChange: (selectedCoins: string[]) => void;
+}
+
+const HoldingsTable: React.FC<HoldingsTableProps> = ({ 
+  holdings, 
+  selectedHoldings, 
+  onSelectionChange 
+}) => {
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
+      onSelectionChange(holdings.map(holding => holding.coin));
+    } else {
+      onSelectionChange([]);
+    }
+  };
+  
+  const handleSelectHolding = (coin: string, checked: boolean) => {
+    if (checked) {
+      onSelectionChange([...selectedHoldings, coin]);
+    } else {
+      onSelectionChange(selectedHoldings.filter(c => c !== coin));
+    }
+  };
+  
+  const isAllSelected = holdings.length > 0 && selectedHoldings.length === holdings.length;
+  
+  return (
+    <div className="mt-8">
+      <h3 className="text-xl font-semibold mb-4">Holdings</h3>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse">
+          <thead className="bg-koinz-darkNavy">
+            <tr>
+              <th className="p-4 text-left">
+                <Checkbox 
+                  checked={isAllSelected} 
+                  onCheckedChange={(checked) => handleSelectAll(!!checked)} 
+                />
+              </th>
+              <th className="p-4 text-left">Asset</th>
+              <th className="p-4 text-right">
+                Holdings
+                <div className="text-xs text-koinz-gray">Current Market Rate</div>
+              </th>
+              <th className="p-4 text-right">Total Current Value</th>
+              <th className="p-4 text-right">Short-term</th>
+              <th className="p-4 text-right">Long-Term</th>
+              <th className="p-4 text-right">Amount to Sell</th>
+            </tr>
+          </thead>
+          <tbody>
+            {holdings.map((holding) => {
+              const isSelected = selectedHoldings.includes(holding.coin);
+              const totalValue = holding.totalHolding * holding.currentPrice;
+              
+              return (
+                <tr 
+                  key={holding.coin}
+                  className={`border-b border-koinz-gray/10 ${isSelected ? 'bg-blue-500/5' : ''} hover:bg-koinz-gray/5`}
+                >
+                  <td className="p-4">
+                    <Checkbox 
+                      checked={isSelected}
+                      onCheckedChange={(checked) => handleSelectHolding(holding.coin, !!checked)}
+                    />
+                  </td>
+                  <td className="p-4">
+                    <div className="flex items-center">
+                      <img 
+                        src={holding.logo} 
+                        alt={holding.coin} 
+                        className="w-8 h-8 rounded-full mr-3"
+                      />
+                      <div>
+                        <div>{holding.coin}</div>
+                        <div className="text-xs text-koinz-gray">{holding.coin}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="p-4 text-right">
+                    <div>{holding.totalHolding.toFixed(6)} {holding.coin}</div>
+                    <div className="text-xs text-koinz-gray">₹ {holding.currentPrice.toFixed(2)}/{holding.coin}</div>
+                  </td>
+                  <td className="p-4 text-right">
+                    ₹ {totalValue.toFixed(2)}
+                  </td>
+                  <td className="p-4 text-right">
+                    <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
+                      {holding.stcg.gain >= 0 ? '' : '-'}₹ {Math.abs(holding.stcg.gain).toFixed(2)}
+                    </div>
+                    <div className="text-xs text-koinz-gray">
+                      {holding.stcg.balance.toFixed(4)} {holding.coin}
+                    </div>
+                  </td>
+                  <td className="p-4 text-right">
+                    <div className={holding.ltcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
+                      {holding.ltcg.gain >= 0 ? '' : '-'}₹ {Math.abs(holding.ltcg.gain).toFixed(2)}
+                    </div>
+                    <div className="text-xs text-koinz-gray">
+                      {holding.ltcg.balance.toFixed(4)} {holding.coin}
+                    </div>
+                  </td>
+                  <td className="p-4 text-right">
+                    {isSelected ? (
+                      <div>{holding.totalHolding.toFixed(6)} {holding.coin}</div>
+                    ) : (
+                      <div>-</div>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default HoldingsTable;
