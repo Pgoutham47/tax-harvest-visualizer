@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -10,7 +11,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="bg-koinz-navy border border-blue-500/30 rounded-lg overflow-hidden mt-4">
+    <div className="bg-koinz-navy border border-blue-500/30 rounded-lg overflow-hidden mt-4 mb-6 mx-auto container">
       <button 
         className="flex flex-row items-center justify-between w-full bg-transparent p-4 hover:bg-blue-500/10 transition-colors"
         onClick={onClose}

@@ -29,7 +29,7 @@ const CapitalGainsCard: React.FC<CapitalGainsCardProps> = ({
   
   return (
     <div className={`rounded-lg p-6 ${bgColorClass} w-full`}>
-      <h3 className="text-xl font-semibold mb-8">{title}</h3>
+      <h3 className="text-xl font-semibold mb-8 text-white">{title}</h3>
       
       <div className="grid grid-cols-3 gap-4 mb-3">
         <div></div>
@@ -38,41 +38,41 @@ const CapitalGainsCard: React.FC<CapitalGainsCardProps> = ({
       </div>
       
       <div className="grid grid-cols-3 gap-4 mb-3 items-center">
-        <div className="text-left">Profits</div>
-        <div className="text-right text-koinz-white">
+        <div className="text-left text-white">Profits</div>
+        <div className="text-right text-white">
           {stcg.profits > 0 ? `$${stcg.profits.toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
         </div>
-        <div className="text-right text-koinz-white">
+        <div className="text-right text-white">
           {ltcg.profits > 0 ? `$${ltcg.profits.toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
         </div>
       </div>
       
       <div className="grid grid-cols-3 gap-4 mb-3 items-center">
-        <div className="text-left">Losses</div>
-        <div className="text-right text-koinz-red">
+        <div className="text-left text-white">Losses</div>
+        <div className="text-right text-white">
           {stcg.losses > 0 ? `- $${stcg.losses.toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
         </div>
-        <div className="text-right text-koinz-red">
+        <div className="text-right text-white">
           {ltcg.losses > 0 ? `- $${ltcg.losses.toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
         </div>
       </div>
       
       <div className="grid grid-cols-3 gap-4 mb-8 items-center">
-        <div className="text-left">Net Capital Gains</div>
-        <div className={`text-right ${stcgNet >= 0 ? 'text-koinz-green' : 'text-koinz-red'}`}>
+        <div className="text-left text-white">Net Capital Gains</div>
+        <div className="text-right text-white">
           {stcgNet !== 0 ? `${stcgNet >= 0 ? '$' : '- $'}${Math.abs(stcgNet).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
         </div>
-        <div className={`text-right ${ltcgNet >= 0 ? 'text-koinz-green' : 'text-koinz-red'}`}>
+        <div className="text-right text-white">
           {ltcgNet !== 0 ? `${ltcgNet >= 0 ? '$' : '- $'}${Math.abs(ltcgNet).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
         </div>
       </div>
       
       <div className="flex items-center justify-between">
-        <div className="text-xl text-koinz-white">
+        <div className="text-xl text-white">
           {isAfterHarvesting ? 'Effective Capital Gains:' : 'Realised Capital Gains:'}
         </div>
-        <div className={`text-2xl font-bold ml-2 text-koinz-white`}>
-          {totalGains !== 0 ? `${totalGains >= 0 ? '$' : '- $'}${Math.abs(totalGains).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
+        <div className="text-2xl font-bold ml-2 text-white">
+          {totalGains !== 0 ? `${totalGains >= 0 ? '$' : '- $'}${Math.abs(totalGains).toLocaleString('en-US', {maximumFractionDigits: 0})}` : '--'}
         </div>
       </div>
       

@@ -95,7 +95,7 @@ const Index = () => {
       <Header toggleInfoModal={toggleInfoModal} />
       
       <main className="flex-1 container py-6">
-        <InfoModal isOpen={infoModalOpen} onClose={() => setInfoModalOpen(false)} />
+        {infoModalOpen && <InfoModal isOpen={infoModalOpen} onClose={() => setInfoModalOpen(false)} />}
         
         {isLoading ? (
           <div className="flex items-center justify-center h-64">

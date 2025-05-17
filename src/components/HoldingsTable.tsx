@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Holding } from '@/types';
 
@@ -14,6 +14,8 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
   selectedHoldings, 
   onSelectionChange 
 }) => {
+  const [showAll, setShowAll] = useState(false);
+  
   const handleSelectAll = (checked: boolean) => {
     if (checked) {
       onSelectionChange(holdings.map(holding => holding.coin));
@@ -31,6 +33,9 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
   };
   
   const isAllSelected = holdings.length > 0 && selectedHoldings.length === holdings.length;
+  
+  // Display only first 4 holdings unless "View All" is clicked
+  const displayedHoldings = showAll ? holdings : holdings.slice(0, 4);
   
   return (
     <div className="mt-8">
@@ -57,7 +62,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
             </tr>
           </thead>
           <tbody>
-            {holdings.map((holding) => {
+            {displayedHoldings.map((holding) => {
               const isSelected = selectedHoldings.includes(holding.coin);
               const totalValue = holding.totalHolding * holding.currentPrice;
               
@@ -94,7 +99,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                     ${totalValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                   </td>
                   <td className="p-4 text-right">
-                    <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
+                    <div className="text-white">
                       {holding.stcg.gain !== 0 ? `${holding.stcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.stcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
                     </div>
                     <div className="text-xs text-koinz-gray">
@@ -102,7 +107,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                     </div>
                   </td>
                   <td className="p-4 text-right">
-                    <div className={holding.ltcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
+                    <div className="text-white">
                       {holding.ltcg.gain !== 0 ? `${holding.ltcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.ltcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
                     </div>
                     <div className="text-xs text-koinz-gray">
@@ -122,6 +127,17 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
           </tbody>
         </table>
       </div>
+      
+      {!showAll && holdings.length > 4 && (
+        <div className="flex justify-center mt-4">
+          <button 
+            onClick={() => setShowAll(true)}
+            className="px-4 py-2 bg-koinz-blue text-white rounded-md hover:bg-blue-600 transition-colors"
+          >
+            View All
+          </button>
+        </div>
+      )}
     </div>
   );
 };
