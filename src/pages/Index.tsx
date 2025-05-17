@@ -9,7 +9,7 @@ import { fetchCapitalGains, fetchHoldings } from '@/services/api';
 import { CapitalGains, Holding, UpdatedCapitalGains } from '@/types';
 
 const Index = () => {
-  const [infoModalOpen, setInfoModalOpen] = useState(true);
+  const [infoModalOpen, setInfoModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [holdings, setHoldings] = useState<Holding[]>([]);
   const [originalCapitalGains, setOriginalCapitalGains] = useState<CapitalGains | null>(null);
