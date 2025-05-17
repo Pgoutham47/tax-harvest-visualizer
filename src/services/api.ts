@@ -73,7 +73,7 @@ const mockHoldings: Holding[] = [
 const mockCapitalGains: CapitalGains = {
   capitalGains: {
     stcg: {
-      profits": 2335,
+      profits: 2335,
       losses: 1548
     },
     ltcg: {
