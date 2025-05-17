@@ -9,7 +9,7 @@ import { fetchCapitalGains, fetchHoldings } from '@/services/api';
 import { CapitalGains, Holding, UpdatedCapitalGains } from '@/types';
 
 const Index = () => {
-  const [infoModalOpen, setInfoModalOpen] = useState(false);
+  const [infoModalOpen, setInfoModalOpen] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [holdings, setHoldings] = useState<Holding[]>([]);
   const [originalCapitalGains, setOriginalCapitalGains] = useState<CapitalGains | null>(null);
@@ -93,16 +93,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-koinz-navy text-white flex flex-col">
       <Header toggleInfoModal={toggleInfoModal} />
-      <InfoModal isOpen={infoModalOpen} onClose={() => setInfoModalOpen(false)} />
       
       <main className="flex-1 container py-6">
+        <InfoModal isOpen={infoModalOpen} onClose={() => setInfoModalOpen(false)} />
+        
         {isLoading ? (
           <div className="flex items-center justify-center h-64">
             <div className="text-xl">Loading...</div>
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
               {originalCapitalGains && (
                 <CapitalGainsCard 
                   title="Pre Harvesting"
