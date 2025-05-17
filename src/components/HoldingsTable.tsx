@@ -80,21 +80,21 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                         className="w-8 h-8 rounded-full mr-3"
                       />
                       <div>
-                        <div>{holding.coin}</div>
+                        <div className="font-medium">{holding.coinName}</div>
                         <div className="text-xs text-koinz-gray">{holding.coin}</div>
                       </div>
                     </div>
                   </td>
                   <td className="p-4 text-right">
                     <div>{holding.totalHolding.toFixed(6)} {holding.coin}</div>
-                    <div className="text-xs text-koinz-gray">₹ {holding.currentPrice.toFixed(2)}/{holding.coin}</div>
+                    <div className="text-xs text-koinz-gray">$ {holding.currentPrice.toFixed(2)}/{holding.coin}</div>
                   </td>
                   <td className="p-4 text-right">
-                    ₹ {totalValue.toFixed(2)}
+                    $ {totalValue.toLocaleString('en-US', {maximumFractionDigits: 2})}
                   </td>
                   <td className="p-4 text-right">
                     <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
-                      {holding.stcg.gain >= 0 ? '' : '-'}₹ {Math.abs(holding.stcg.gain).toFixed(2)}
+                      {holding.stcg.gain >= 0 ? '+' : '-'}$ {Math.abs(holding.stcg.gain).toLocaleString('en-US', {maximumFractionDigits: 2})}
                     </div>
                     <div className="text-xs text-koinz-gray">
                       {holding.stcg.balance.toFixed(4)} {holding.coin}
@@ -102,7 +102,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                   </td>
                   <td className="p-4 text-right">
                     <div className={holding.ltcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
-                      {holding.ltcg.gain >= 0 ? '' : '-'}₹ {Math.abs(holding.ltcg.gain).toFixed(2)}
+                      {holding.ltcg.gain >= 0 ? '+' : '-'}$ {Math.abs(holding.ltcg.gain).toLocaleString('en-US', {maximumFractionDigits: 2})}
                     </div>
                     <div className="text-xs text-koinz-gray">
                       {holding.ltcg.balance.toFixed(4)} {holding.coin}

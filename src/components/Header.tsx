@@ -11,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({ toggleInfoModal }) => {
   return (
     <header className="flex items-center justify-between p-4 bg-koinz-darkNavy">
       <div className="flex items-center">
-        <h1 className="text-2xl font-bold text-blue-500">KoinZ</h1>
+        <h1 className="text-2xl font-bold text-blue-500">KoinZ®</h1>
       </div>
       <div className="flex items-center space-x-4">
         <div className="flex items-center">
@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ toggleInfoModal }) => {
           className="flex items-center text-koinz-gray hover:text-white transition-colors"
         >
           <InfoIcon className="h-5 w-5 mr-1" />
-          <span className="text-sm">Important Notes</span>
+          <span className="text-sm">Important Notes & Disclaimers</span>
         </button>
       </div>
     </header>

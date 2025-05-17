@@ -4,99 +4,51 @@ import { CapitalGains, Holding } from "@/types";
 // Mock holdings data
 const mockHoldings: Holding[] = [
   {
-    "coin": "USDC",
-    "coinName": "USDC",
-    "logo": "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
-    "currentPrice": 85.41,
-    "totalHolding": 0.0015339999999994802,
-    "averageBuyPrice": 1.5863185433764244,
-    "stcg": {
-      "balance": 0.0015339999999994802,
-      "gain": 0.12858552735441697
-    },
-    "ltcg": {
-      "balance": 0,
-      "gain": 0
-    }
-  },
-  {
-    "coin": "WETH",
-    "coinName": "Polygon PoS Bridged WETH (Polygon POS)",
-    "logo": "https://coin-images.coingecko.com/coins/images/2518/large/weth.png?1696503332",
-    "currentPrice": 211756,
-    "totalHolding": 0.00023999998390319965,
-    "averageBuyPrice": 3599.856066001555,
-    "stcg": {
-      "balance": 0.00023999998390319965,
-      "gain": 49.957471193511736
-    },
-    "ltcg": {
-      "balance": 0,
-      "gain": 0
-    }
-  },
-  {
-    "coin": "SOL",
-    "coinName": "SOL (Wormhole)",
-    "logo": "https://coin-images.coingecko.com/coins/images/22876/large/SOL_wh_small.png?1696522175",
-    "currentPrice": 14758.01,
-    "totalHolding": 3.469446951953614e-17,
-    "averageBuyPrice": 221.42847548590152,
-    "stcg": {
-      "balance": 3.469446951953614e-17,
-      "gain": 5.043389846205066e-13
-    },
-    "ltcg": {
-      "balance": 0,
-      "gain": 0
-    }
-  },
-  {
     "coin": "BTC",
     "coinName": "Bitcoin",
     "logo": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-    "currentPrice": 3436542.61,
-    "totalHolding": 0.00063776,
-    "averageBuyPrice": 3250000,
+    "currentPrice": 55320.15,
+    "totalHolding": 0.63776,
+    "averageBuyPrice": 55000,
     "stcg": {
-      "balance": 0.00063776,
-      "gain": 118.72
+      "balance": 0.338,
+      "gain": -1200
     },
     "ltcg": {
-      "balance": 0,
-      "gain": 0
+      "balance": 0.300,
+      "gain": 2400
     }
   },
   {
     "coin": "ETH",
     "coinName": "Ethereum",
     "logo": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-    "currentPrice": 186500.93,
-    "totalHolding": 0.056736,
-    "averageBuyPrice": 162000,
+    "currentPrice": 1620.15,
+    "totalHolding": 5.6736,
+    "averageBuyPrice": 1400,
     "stcg": {
-      "balance": 0.03,
-      "gain": 735.03
+      "balance": 2.332,
+      "gain": 55320.15
     },
     "ltcg": {
-      "balance": 0.026736,
-      "gain": 655.44
+      "balance": 3.245,
+      "gain": 8239.29
     }
   },
   {
-    "coin": "MATIC",
-    "coinName": "Polygon",
-    "logo": "https://coin-images.coingecko.com/coins/images/4713/large/polygon.png?1698233745",
-    "currentPrice": 45.42,
-    "totalHolding": 224.10,
-    "averageBuyPrice": 52.31,
+    "coin": "USDC",
+    "coinName": "USDC",
+    "logo": "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
+    "currentPrice": 1.00,
+    "totalHolding": 1533.99,
+    "averageBuyPrice": 1.00,
     "stcg": {
-      "balance": 100,
-      "gain": -689.00
+      "balance": 1533.99,
+      "gain": 0
     },
     "ltcg": {
-      "balance": 124.10,
-      "gain": -854.09
+      "balance": 0,
+      "gain": 0
     }
   }
 ];
@@ -105,12 +57,12 @@ const mockHoldings: Holding[] = [
 const mockCapitalGains: CapitalGains = {
   capitalGains: {
     stcg: {
-      profits: 70200.88,
-      losses: 1548.53
+      profits: 1540,
+      losses: 743
     },
     ltcg: {
-      profits: 5020,
-      losses: 3050
+      profits: 1200,
+      losses: 650
     }
   }
 };
