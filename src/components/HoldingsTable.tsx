@@ -99,7 +99,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                     ${totalValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                   </td>
                   <td className="p-4 text-right">
-                    <div className="text-white">
+                    <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
                       {holding.stcg.gain !== 0 ? `${holding.stcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.stcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
                     </div>
                     <div className="text-xs text-koinz-gray">
@@ -107,7 +107,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                     </div>
                   </td>
                   <td className="p-4 text-right">
-                    <div className="text-white">
+                   <div className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}>
                       {holding.ltcg.gain !== 0 ? `${holding.ltcg.gain >= 0 ? '+' : '-'}$${Math.abs(holding.ltcg.gain).toLocaleString('en-US', {maximumFractionDigits: 0})}` : ''}
                     </div>
                     <div className="text-xs text-koinz-gray">
