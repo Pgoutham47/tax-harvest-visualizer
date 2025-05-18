@@ -1,3 +1,4 @@
+
 import { CapitalGains, Holding } from "@/types";
 
 // Mock holdings data
@@ -8,6 +9,7 @@ const mockHoldings: Holding[] = [
     logo: "https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png",
     currentPrice: 60334,
     totalHolding: 0.05,
+    averageBuyPrice: 58000, // Added missing property
     stcg: {
       gain: 150,
       balance: 0.01
@@ -23,6 +25,7 @@ const mockHoldings: Holding[] = [
     logo: "https://assets.coingecko.com/coins/images/279/thumb/ethereum.png",
     currentPrice: 2938,
     totalHolding: 1.5,
+    averageBuyPrice: 3000, // Added missing property
     stcg: {
       gain: -75,
       balance: 0.5
@@ -38,6 +41,7 @@ const mockHoldings: Holding[] = [
     logo: "https://assets.coingecko.com/coins/images/325/thumb/Tether-logo.png",
     currentPrice: 1,
     totalHolding: 1000,
+    averageBuyPrice: 1, // Added missing property
     stcg: {
       gain: 0,
       balance: 0
@@ -53,6 +57,7 @@ const mockHoldings: Holding[] = [
     logo: "https://assets.coingecko.com/coins/images/4713/thumb/matic-token-icon.png",
     currentPrice: 0.75,
     totalHolding: 500,
+    averageBuyPrice: 0.80, // Added missing property
     stcg: {
       gain: -25,
       balance: 100
