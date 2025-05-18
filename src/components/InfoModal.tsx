@@ -11,8 +11,8 @@ const InfoModal: React.FC<InfoModalProps> = ({ isOpen }) => {
 
   return (
     <div className="w-full mx-auto mt-6">
-      <div className="bg-white dark:bg-card py-3 px-6 rounded-b-lg border-t-0 border border-gray-300 dark:border-blue-500/30">
-        <ul className="space-y-3 list-disc pl-5 text-sm text-gray-600 dark:text-muted-foreground">
+      <div className="bg-blue-50 dark:bg-card py-3 px-6 rounded-b-lg border-t-0 border border-blue-200 dark:border-blue-500/30">
+        <ul className="space-y-3 list-disc pl-5 text-sm text-gray-700 dark:text-muted-foreground">
           <li>Tax-loss harvesting is currently not allowed under Indian tax regulations. Please consult your tax advisor before making any decisions.</li>
           <li>Tax harvesting does not apply to derivatives or futures. These are handled separately as business income under tax rules.</li>
           <li>Price and market value data is fetched from Coingecko, not from individual exchanges. As a result, values may slightly differ from the ones on your exchange.</li>

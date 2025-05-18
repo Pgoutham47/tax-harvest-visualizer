@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Holding } from '@/types';
@@ -61,9 +62,10 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
     setSortConfig({ column, direction });
   };
 
-  const bgColorClass = isPreHarvesting 
-    ? 'bg-white dark:bg-koinz-lightNavy' 
-    : 'bg-white dark:bg-koinz-darkNavy';
+  const bgColorClass = 'bg-white dark:bg-koinz-darkNavy';
+  const headerBgClass = 'bg-gray-50 dark:bg-koinz-navy';
+  const hoverClass = 'hover:bg-gray-50 dark:hover:bg-koinz-gray/10';
+  const selectedClass = 'bg-blue-50 dark:bg-blue-500/10';
 
   const SortIndicator = ({ column }: { column: SortColumn }) => {
     if (sortConfig.column !== column) return <span className="ml-1">↕</span>;
@@ -79,7 +81,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="bg-gray-100 dark:bg-koinz-navy">
+            <tr className={headerBgClass}>
               <th className="p-4 text-left rounded-tl-lg">
                 <Checkbox
                   checked={isAllSelected}
@@ -93,14 +95,14 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
               </th>
               <th className="p-4 text-right">Total Current Value</th>
               <th
-                className="p-4 text-right cursor-pointer hover:bg-gray-200 dark:hover:bg-koinz-gray/20"
+                className={`p-4 text-right cursor-pointer hover:bg-gray-100 dark:hover:bg-koinz-gray/20`}
                 onClick={() => requestSort('stcg')}
               >
                 Short-term
                 <SortIndicator column="stcg" />
               </th>
               <th
-                className="p-4 text-right cursor-pointer hover:bg-gray-200 dark:hover:bg-koinz-gray/20"
+                className={`p-4 text-right cursor-pointer hover:bg-gray-100 dark:hover:bg-koinz-gray/20`}
                 onClick={() => requestSort('ltcg')}
               >
                 Long-Term
@@ -118,8 +120,8 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                 <tr
                   key={holding.coin}
                   className={`border-b border-gray-200 dark:border-koinz-gray/10 
-                    ${isSelected ? 'bg-blue-100 dark:bg-blue-500/10' : ''} 
-                    hover:bg-gray-100 dark:hover:bg-koinz-gray/10`}
+                    ${isSelected ? selectedClass : ''} 
+                    ${hoverClass}`}
                 >
                   <td className="p-4">
                     <Checkbox
