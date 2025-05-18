@@ -17,6 +17,13 @@ A responsive and interactive dashboard that displays tax loss harvesting data fo
 - **TypeScript** – static typing for better dev experience
 - **shadcn-ui** – accessible and composable UI components
 - **Tailwind CSS** – utility-first styling
+   ### Light Mode
+- Clean UI with soft background (`#f9fafb`)
+- Subtle borders and shadows for card separation
+
+### Dark Mode
+- Uses `bg-card`, `dark:text-foreground`, and `dark:border-border`
+- Maintains accessibility and contrast in dark UI
 
 
 
