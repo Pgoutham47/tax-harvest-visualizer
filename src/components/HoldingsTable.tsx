@@ -61,7 +61,9 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
     setSortConfig({ column, direction });
   };
 
-  const bgColorClass = isPreHarvesting ? 'bg-koinz-lightNavy' : 'bg-koinz-darkNavy';
+  const bgColorClass = isPreHarvesting 
+    ? 'bg-white dark:bg-koinz-lightNavy' 
+    : 'bg-white dark:bg-koinz-darkNavy';
 
   const SortIndicator = ({ column }: { column: SortColumn }) => {
     if (sortConfig.column !== column) return <span className="ml-1">↕</span>;
@@ -69,15 +71,15 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
   };
 
   return (
-    <div className={`mt-8 rounded-lg p-6 ${bgColorClass}`}>
+    <div className={`mt-8 rounded-lg p-6 ${bgColorClass} text-gray-800 dark:text-white`}>
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-2xl font-semibold text-white">Holdings</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Holdings</h3>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="bg-koinz-navy">
+            <tr className="bg-gray-100 dark:bg-koinz-navy">
               <th className="p-4 text-left rounded-tl-lg">
                 <Checkbox
                   checked={isAllSelected}
@@ -87,18 +89,18 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
               <th className="p-4 text-left">Asset</th>
               <th className="p-4 text-right">
                 Holdings
-                <div className="text-xs text-koinz-gray">Current Market Rate</div>
+                <div className="text-xs text-gray-500 dark:text-koinz-gray">Current Market Rate</div>
               </th>
               <th className="p-4 text-right">Total Current Value</th>
               <th
-                className="p-4 text-right cursor-pointer hover:bg-koinz-gray/20"
+                className="p-4 text-right cursor-pointer hover:bg-gray-200 dark:hover:bg-koinz-gray/20"
                 onClick={() => requestSort('stcg')}
               >
                 Short-term
                 <SortIndicator column="stcg" />
               </th>
               <th
-                className="p-4 text-right cursor-pointer hover:bg-koinz-gray/20"
+                className="p-4 text-right cursor-pointer hover:bg-gray-200 dark:hover:bg-koinz-gray/20"
                 onClick={() => requestSort('ltcg')}
               >
                 Long-Term
@@ -115,7 +117,9 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
               return (
                 <tr
                   key={holding.coin}
-                  className={`border-b border-koinz-gray/10 ${isSelected ? 'bg-blue-500/10' : ''} hover:bg-koinz-gray/10`}
+                  className={`border-b border-gray-200 dark:border-koinz-gray/10 
+                    ${isSelected ? 'bg-blue-100 dark:bg-blue-500/10' : ''} 
+                    hover:bg-gray-100 dark:hover:bg-koinz-gray/10`}
                 >
                   <td className="p-4">
                     <Checkbox
@@ -133,7 +137,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                       />
                       <div>
                         <div className="font-medium">{holding.coinName}</div>
-                        <div className="text-xs text-koinz-gray">{holding.coin}</div>
+                        <div className="text-xs text-gray-500 dark:text-koinz-gray">{holding.coin}</div>
                       </div>
                     </div>
                   </td>
@@ -144,7 +148,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                       {holding.totalHolding.toFixed(holding.coin === "BTC" || holding.coin === "ETH" ? 3 : 2)} {holding.coin}
                     </div>
                     <div
-                      className="text-xs text-koinz-gray"
+                      className="text-xs text-gray-500 dark:text-koinz-gray"
                       title={`$${holding.currentPrice.toLocaleString('en-US', { minimumFractionDigits: 2 })}/${holding.coin}`}
                     >
                       ${holding.currentPrice.toLocaleString('en-US', {
@@ -163,7 +167,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                   </td>
                   <td className="p-4 text-right">
                     <div
-                      className={holding.stcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}
+                      className={holding.stcg.gain >= 0 ? 'text-green-600 dark:text-koinz-green' : 'text-red-600 dark:text-koinz-red'}
                       title={holding.stcg.gain !== 0 ? `$${holding.stcg.gain}` : '-'}
                     >
                       {holding.stcg.gain !== 0
@@ -171,7 +175,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                         : '-'}
                     </div>
                     <div
-                      className="text-xs text-koinz-gray"
+                      className="text-xs text-gray-500 dark:text-koinz-gray"
                       title={holding.stcg.balance > 0 ? `${holding.stcg.balance} ${holding.coin}` : ''}
                     >
                       {holding.stcg.balance > 0
@@ -181,7 +185,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                   </td>
                   <td className="p-4 text-right">
                     <div
-                      className={holding.ltcg.gain >= 0 ? 'text-koinz-green' : 'text-koinz-red'}
+                      className={holding.ltcg.gain >= 0 ? 'text-green-600 dark:text-koinz-green' : 'text-red-600 dark:text-koinz-red'}
                       title={holding.ltcg.gain !== 0 ? `$${holding.ltcg.gain}` : '-'}
                     >
                       {holding.ltcg.gain !== 0
@@ -189,7 +193,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                         : '-'}
                     </div>
                     <div
-                      className="text-xs text-koinz-gray"
+                      className="text-xs text-gray-500 dark:text-koinz-gray"
                       title={holding.ltcg.balance > 0 ? `${holding.ltcg.balance} ${holding.coin}` : ''}
                     >
                       {holding.ltcg.balance > 0
