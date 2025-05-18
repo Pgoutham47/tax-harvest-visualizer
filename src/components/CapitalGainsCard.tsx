@@ -27,8 +27,8 @@ const CapitalGainsCard: React.FC<CapitalGainsCardProps> = ({
   
   // Use different colors for light and dark mode
   const bgColorClass = isAfterHarvesting 
-    ? 'bg-blue-500 dark:bg-primary text-white dark:text-primary-foreground' 
-    : 'bg-white dark:bg-card text-gray-800 dark:text-card-foreground';
+  ? 'bg-blue-500 dark:bg-primary text-white dark:text-primary-foreground' 
+  : 'bg-[#f9fafb] dark:bg-card text-gray-800 dark:text-card-foreground border border-gray-200 shadow-sm dark:border-border dark:shadow-none';
   
   return (
     <div className={`rounded-lg p-6 ${bgColorClass} w-full`}>

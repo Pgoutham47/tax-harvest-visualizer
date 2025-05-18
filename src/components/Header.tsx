@@ -57,7 +57,7 @@ const Header: React.FC = () => {
         <div className="mt-2 w-100 mb-0">
           <button 
             onClick={toggleInfoModal}
-            className="flex items-center w-full p-3 border border-gray-300 dark:border-blue-500/30 rounded-lg text-gray-800 dark:text-foreground bg-white dark:bg-card hover:bg-gray-100 dark:hover:bg-accent transition-colors"
+           className="flex items-center w-full p-3 border border-gray-300 dark:border-blue-500/30 rounded-lg text-gray-800 dark:text-foreground bg-blue-100 hover:bg-blue-100 dark:bg-card dark:hover:bg-accent transition-colors"
           >
             <div className="flex items-center">
               <InfoIcon className="h-5 w-5 mr-2 text-blue-400" />
