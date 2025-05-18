@@ -16,60 +16,64 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col bg-koinz-darkNavy">
+    <div className="flex flex-col bg-black">
       {/* Top navbar with logo only */}
-      <div className="border-b border-koinz-gray/10 p-4">
+      <div className="border-b border-gray-800 p-4">
         <div className="flex items-center">
-          <img 
+          <span className="text-blue-500 text-xl font-bold"><img 
             src="/lovable-uploads/9f81926c-52c2-4f70-901f-58251a46bd4e.png" 
             alt="KoinX" 
             className="h-8" 
-          />
+          /></span>
         </div>
       </div>
       
-      {/* Navigation section */}
-      <div className="p-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Tax Harvesting</h2>
+      {/* Content section with different background */}
+      <div className="bg-[#121212] p-4">
+        {/* Tax Harvesting section */}
+        <div className="flex items-center space-x-2">
+          <h2 className="text-2xl font-semibold text-white">Tax Harvesting</h2>
           <button 
             onClick={toggleHowItWorks}
-            className="flex items-center text-sm text-blue-400 hover:underline"
+            className="text-sm text-blue-400 hover:underline"
           >
             How it works?
-            {showHowItWorks ? (
-              <ChevronUp className="h-4 w-4 ml-1" />
-            ) : (
-              <ChevronDown className="h-4 w-4 ml-1" />
-            )}
           </button>
         </div>
         
-        {showHowItWorks && (
-          <div className="mt-2 p-3 bg-koinz-navy/50 rounded text-sm">
-            Tax-loss harvesting is a strategy to reduce taxes by selling investments at a loss to offset capital gains tax liability.
-          </div>
-        )}
+        {/* Info modal button - styled as in the image */}
+        <div className="mt-4">
+          <button 
+            onClick={toggleInfoModal}
+            className="flex items-center w-full p-3 border border-blue-500/30 rounded-lg text-white bg-[#1e1e2d]"
+          >
+            <div className="flex items-center">
+              <InfoIcon className="h-5 w-5 mr-2 text-blue-400" />
+              <span>Important Notes & Disclaimers</span>
+            </div>
+            {showInfoModal ? (
+              <ChevronUp className="h-5 w-5 ml-auto" />
+            ) : (
+              <ChevronDown className="h-5 w-5 ml-auto" />
+            )}
+          </button>
+        </div>
 
-        <button 
-          onClick={toggleInfoModal}
-          className="flex items-center justify-between w-full text-koinz-gray hover:text-white transition-colors mt-4"
-        >
-          <div className="flex items-center">
-            <InfoIcon className="h-5 w-5 mr-2" />
-            <span className="text-sm">Important Notes & Disclaimers</span>
-          </div>
-          {showInfoModal ? (
-            <ChevronUp className="h-4 w-4" />
-          ) : (
-            <ChevronDown className="h-4 w-4" />
-          )}
-        </button>
+        {/* Show the modal content if open */}
+        {showInfoModal && <InfoModal isOpen={true} onClose={toggleInfoModal} />}
       </div>
-
-      <InfoModal isOpen={showInfoModal} onClose={toggleInfoModal} />
     </div>
   );
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
