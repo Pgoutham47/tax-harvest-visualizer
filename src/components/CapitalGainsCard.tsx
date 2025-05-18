@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface GainsData {
@@ -24,10 +25,11 @@ const CapitalGainsCard: React.FC<CapitalGainsCardProps> = ({
   const ltcgNet = ltcg.profits - ltcg.losses;
   const totalGains = stcgNet + ltcgNet;
   
-  const bgColorClass = isAfterHarvesting ? 'bg-koinz-blue' : 'bg-koinz-darkNavy';
+  // Use the primary color for after harvesting cards, and card color for default
+  const bgColorClass = isAfterHarvesting ? 'bg-primary text-primary-foreground' : 'bg-card text-card-foreground';
   
   return (
-    <div className={`rounded-lg p-6 ${bgColorClass} w-full text-white`}>
+    <div className={`rounded-lg p-6 ${bgColorClass} w-full`}>
       <h3 className="text-2xl font-semibold mb-6">{title}</h3>
       
       {/* Header Row */}
@@ -70,8 +72,8 @@ const CapitalGainsCard: React.FC<CapitalGainsCardProps> = ({
         </div>
       </div>
       
-      {/* Total Gains - Tightened layout */}
-      <div className="flex items-baseline justify-start gap-2 border-t border-white/20 pt-4 text-xl">
+      {/* Total Gains */}
+      <div className="flex items-baseline justify-start gap-2 border-t border-border pt-4 text-xl">
         <div className="whitespace-nowrap">
           {isAfterHarvesting ? 'Effective Capital Gains:' : 'Realised Capital Gains:'}
         </div>
@@ -82,7 +84,7 @@ const CapitalGainsCard: React.FC<CapitalGainsCardProps> = ({
       
       {/* Savings Notice */}
       {isAfterHarvesting && savings !== undefined && savings > 0 && (
-        <div className="mt-3 flex items-center bg-white/10 rounded px-3 py-2 text-lg">
+        <div className="mt-3 flex items-center bg-accent/30 rounded px-3 py-2 text-lg">
           <span className="mr-2">🎉</span>
           <span>You are going to save up to ${savings.toLocaleString('en-US')}</span>
         </div>

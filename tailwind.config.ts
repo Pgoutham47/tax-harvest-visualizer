@@ -2,7 +2,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
+  darkMode: ["media"], // Use the media query for automatic dark mode
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -72,6 +72,7 @@ export default {
           blue: '#0E76FD',
           darkBlue: '#0D68E0',
           navy: '#131722',
+          lightNavy: '#1e293b', // Lighter navy for light mode
           darkNavy: '#0E1118',
           green: '#25C26E',
           red: '#FF5353',
