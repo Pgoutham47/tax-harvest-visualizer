@@ -1,4 +1,4 @@
-
+// header.tsx
 import React, { useState } from 'react';
 import { InfoIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import InfoModal from './InfoModal';
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
     <div className="flex flex-col bg-black">
       {/* Top navbar with logo only - full width */}
       <div className="w-full border-b border-gray-800 p-4">
-        <div className="flex justify-center md:justify-start md:pl-8">
+        <div className="flex items-center">
           <span className="text-blue-500 text-xl font-bold">
             <img 
               src="/lovable-uploads/9f81926c-52c2-4f70-901f-58251a46bd4e.png" 
@@ -30,10 +30,10 @@ const Header: React.FC = () => {
         </div>
       </div>
       
-      {/* Navigation section - matches content width */}
+      {/* Content section - matches CapitalGainsCard width and padding */}
       <div className="bg-[#121212] p-6 w-full max-w-4xl mx-auto">
-        {/* Navigation links */}
-        <div className="flex flex-wrap items-center space-x-4 mb-6">
+        {/* Tax Harvesting section */}
+        <div className="flex items-center space-x-2 mb-6">
           <h2 className="text-2xl font-semibold text-white">Tax Harvesting</h2>
           <button 
             onClick={toggleHowItWorks}
@@ -41,29 +41,28 @@ const Header: React.FC = () => {
           >
             How it works?
           </button>
-          <button 
-            onClick={toggleInfoModal}
-            className="text-sm text-blue-400 hover:underline"
-          >
-            Important Notes & Disclaimers
-          </button>
         </div>
         
-        {/* How it works content */}
-        {showHowItWorks && (
-          <div className="w-full p-4 bg-white rounded-lg mb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">How Tax Harvesting Works</h3>
-            <p className="text-gray-800">
-              Tax harvesting is a strategy of selling investments at a loss to offset capital gains tax liability.
-              By selling assets that have experienced a loss, investors can use those losses to reduce their taxable 
-              capital gains and potentially lower their tax burden. This tool helps you identify which assets would 
-              be most beneficial to sell for tax optimization purposes.
-            </p>
-          </div>
-        )}
-        
-        {/* Info modal content */}
-        {showInfoModal && <InfoModal isOpen={true} onClose={toggleInfoModal} />}
+        {/* Info modal button - matches card styling */}
+        <div className="mt-2">
+          <button 
+            onClick={toggleInfoModal}
+            className="flex items-center w-full p-3 border border-blue-500/30 rounded-lg text-white bg-[#1e1e2d] hover:bg-[#2a2a3a] transition-colors"
+          >
+            <div className="flex items-center">
+              <InfoIcon className="h-5 w-5 mr-2 text-blue-400" />
+              <span>Important Notes & Disclaimers</span>
+            </div>
+            {showInfoModal ? (
+              <ChevronUp className="h-5 w-5 ml-auto" />
+            ) : (
+              <ChevronDown className="h-5 w-5 ml-auto" />
+            )}
+          </button>
+          
+          {/* Info modal content */}
+          {showInfoModal && <InfoModal isOpen={true} onClose={toggleInfoModal} />}
+        </div>
       </div>
     </div>
   );
