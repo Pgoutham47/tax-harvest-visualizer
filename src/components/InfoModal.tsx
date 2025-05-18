@@ -1,4 +1,4 @@
-
+// infomodal.tsx
 import React from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -11,12 +11,14 @@ const InfoModal: React.FC<InfoModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="bg-koinz-navy border border-blue-500/30 rounded-lg overflow-hidden mt-4 mb-6 mx-auto container">
+    <div className="bg-koinz-navy border border-blue-500/30 rounded-lg overflow-hidden mx-4 mb-6">
       <button 
         className="flex flex-row items-center justify-between w-full bg-transparent p-4 hover:bg-blue-500/10 transition-colors"
         onClick={onClose}
       >
-        <h3 className="text-lg font-medium">Important Notes & Disclaimers</h3>
+        <div className="flex items-center">
+          <h3 className="text-lg font-medium">Important Notes & Disclaimers</h3>
+        </div>
         <div className="h-6 w-6 rounded-full bg-blue-600/20 flex items-center justify-center">
           <ChevronUp className="h-4 w-4 text-blue-400" />
         </div>
