@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Top navbar with logo only - full width */}
-      <div className="w-full border-b border-border p-6 bg-background dark:bg-koinz-darkNavy">
+      <div className="w-full border-b border-border p-6 bg-koinz-navy dark:bg-koinz-darkNavy">
         <div className="flex items-center">
           <span className="text-blue-500 text-xl font-bold ml-5">
             <img 
@@ -29,7 +29,7 @@ const Header: React.FC = () => {
       <div className="container py-6">
         {/* Tax Harvesting section */}
        <div className="flex items-center space-x-2 mb-6 relative">
-          <h2 className="text-2xl font-semibold">Tax Harvesting</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">Tax Harvesting</h2>
 
           {/* Tooltip Button */}
           <div className="relative group">
@@ -38,9 +38,9 @@ const Header: React.FC = () => {
             </button>
 
             {/* Tooltip Content */}
-            <div className="absolute z-10 hidden group-hover:block bg-popover text-popover-foreground text-sm px-4 py-3 rounded shadow-lg top-full left-1/2 -translate-x-1/2 mt-3 w-72">
+            <div className="absolute z-10 hidden group-hover:block bg-white dark:bg-popover text-gray-800 dark:text-popover-foreground text-sm px-4 py-3 rounded shadow-lg top-full left-1/2 -translate-x-1/2 mt-3 w-72">
               {/* Arrow */}
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-popover rotate-45 shadow-sm" />
+              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white dark:bg-popover rotate-45 shadow-sm" />
 
               {/* Bullet Points */}
               <ul className="list-disc pl-5">
@@ -60,7 +60,7 @@ Pre Harves right card</li>
         <div className="mt-2 w-100 mb-0">
           <button 
             onClick={toggleInfoModal}
-            className="flex items-center w-full p-3 border border-blue-500/30 rounded-lg text-foreground bg-card hover:bg-accent transition-colors"
+            className="flex items-center w-full p-3 border border-gray-300 dark:border-blue-500/30 rounded-lg text-gray-800 dark:text-foreground bg-white dark:bg-card hover:bg-gray-100 dark:hover:bg-accent transition-colors"
           >
             <div className="flex items-center">
               <InfoIcon className="h-5 w-5 mr-2 text-blue-400" />

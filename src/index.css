@@ -5,50 +5,50 @@
 
 @layer base {
   :root {
-    /* Light mode variables */
+    /* Light mode variables - Everything white */
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 0 0% 100%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 214 95% 52%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 32% 90%;
-    --secondary-foreground: 217 32% 17%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 32% 90%;
-    --muted-foreground: 215 20% 45%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 100%;
 
-    --accent: 217 32% 90%;
-    --accent-foreground: 217 32% 17%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 32% 85%;
-    --input: 217 32% 85%;
-    --ring: 212 96% 78%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 100%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 214 95% 52%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 217 32% 90%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 217 32% 85%;
-    --sidebar-ring: 214 95% 52%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 100%;
+    --sidebar-ring: 0 0% 100%;
   }
 
   @media (prefers-color-scheme: dark) {
+    /* Keep dark mode variables as they were before */
     :root {
-      /* Dark mode variables */
       --background: 222 47% 11%;
       --foreground: 0 0% 95%;
 
