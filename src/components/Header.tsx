@@ -16,7 +16,7 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <span className="text-blue-500 text-xl font-bold ml-5">
             <img 
-              src="/lovable-uploads/9f81926c-52c2-4f70-901f-58251a46bd4e.png" 
+              src="/image/9f81926c-52c2-4f70-901f-58251a46bd4e.png" 
               alt="KoinX" 
               className="h-8" 
             />
