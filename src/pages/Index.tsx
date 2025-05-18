@@ -92,7 +92,7 @@ const Index = () => {
 
   return (
     <>
-    <div className="min-h-screen bg-koinz-navy text-white flex flex-col">
+    <div className="min-h-screen text-white flex flex-col bg-gray-260 dark:bg-koinz-navy">
       <Header />
       
       <main className="flex-1 container py-6">
