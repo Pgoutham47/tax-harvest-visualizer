@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Holding } from '@/types';
@@ -136,7 +137,7 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
       </div>
       
       {!showAll && holdings.length > 4 && (
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-start mt-4">
           <button 
             onClick={() => setShowAll(true)}
             className="px-4 py-2 bg-koinz-blue text-white rounded-md hover:bg-blue-600 transition-colors"

@@ -15,7 +15,7 @@ const Index = () => {
   const [originalCapitalGains, setOriginalCapitalGains] = useState<CapitalGains | null>(null);
   const [updatedCapitalGains, setUpdatedCapitalGains] = useState<UpdatedCapitalGains | null>(null);
   const [selectedHoldings, setSelectedHoldings] = useState<string[]>([]);
-  const [savings, setSavings] = useState<number>(0);
+  const [savings, setSavings] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,7 +82,7 @@ const Index = () => {
       (updatedGains.ltcg.profits - updatedGains.ltcg.losses);
 
     const potentialSavings = originalNet - updatedNet;
-    setSavings(potentialSavings > 0 ? potentialSavings : 0);
+    setSavings(potentialSavings > 0 ? potentialSavings : null);
     
   }, [selectedHoldings, holdings, originalCapitalGains]);
 
@@ -92,7 +92,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-koinz-navy text-white flex flex-col">
-      <Header toggleInfoModal={toggleInfoModal} />
+      <Header />
       
       <main className="flex-1 container py-6">
         {infoModalOpen && <InfoModal isOpen={infoModalOpen} onClose={() => setInfoModalOpen(false)} />}
