@@ -9,7 +9,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ isOpen }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full mx-auto mt-6">
       <div className="bg-[#1e1e2d] py-3 px-6 rounded-b-lg border-t-0 border border-blue-500/30">
         <ul className="space-y-3 list-disc pl-5 text-sm text-gray-300">
           <li>Tax-loss harvesting is currently not allowed under Indian tax regulations. Please consult your tax advisor before making any decisions.</li>

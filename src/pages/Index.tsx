@@ -91,6 +91,7 @@ const Index = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-koinz-navy text-white flex flex-col">
       <Header />
       
@@ -132,6 +133,7 @@ const Index = () => {
         )}
       </main>
     </div>
+    </>
   );
 };
 

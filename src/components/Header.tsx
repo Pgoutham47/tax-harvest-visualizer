@@ -31,7 +31,7 @@ const Header: React.FC = () => {
       </div>
       
       {/* Content section - matches CapitalGainsCard width and padding */}
-      <div className="bg-[#121212] p-6 w-full max-w-4xl mx-auto">
+      <div className="bg-[#121212] p-6 w-full mx-auto">
         {/* Tax Harvesting section */}
         <div className="flex items-center space-x-2 mb-6">
           <h2 className="text-2xl font-semibold text-white">Tax Harvesting</h2>
