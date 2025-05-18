@@ -17,7 +17,6 @@ A responsive and interactive dashboard that displays tax loss harvesting data fo
 - **TypeScript** – static typing for better dev experience
 - **shadcn-ui** – accessible and composable UI components
 - **Tailwind CSS** – utility-first styling
-- **React Query** – data fetching and caching
-- **Axios** – for HTTP requests
 
-## 🚀 Getting Started
+
+
